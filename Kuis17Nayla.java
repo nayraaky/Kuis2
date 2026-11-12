@@ -8,6 +8,10 @@ public class Kuis17Nayla {
         int jumlahTransaksi = -1;
         int porsiTerbanyak = 0;
 
+        double totalDiskon = 0;
+        int nim2 = 72;
+        int k = (nim2 % 3) + 3;
+
         System.out.print("Jumlah porsi (0 = selesai): ");
         porsi = sc.nextInt();
         jumlahTransaksi++;
@@ -27,11 +31,21 @@ public class Kuis17Nayla {
             } else if (porsi > porsiTerbanyak) {
                 porsiTerbanyak = porsi;
             }
+
+            double diskon = 0;
+            if (jumlahTransaksi % k == 0) {
+                diskon = 0.5 * biaya;
+                total -= diskon;
+            } else {
+                diskon = 0;
+            }
+            totalDiskon += diskon;
         }
 
         System.out.println("=== RINGKASAN ===");
         System.out.println("Jumlah transaksi : " + jumlahTransaksi);
         System.out.println("Total pemasukan  : Rp " + total);
         System.out.println("Porsi terbanyak  : " + porsiTerbanyak);
+        System.out.println("Diskon           : Rp " + totalDiskon);
     }
 }
