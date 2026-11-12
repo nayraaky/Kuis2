@@ -5,7 +5,8 @@ public class Kuis17Nayla {
         Scanner sc = new Scanner(System.in);
         int porsi;
         int total = 0;
-        int jumlahTransaksi = 0;
+        int jumlahTransaksi = -1;
+        int porsiTerbanyak = 0;
 
         System.out.print("Jumlah porsi (0 = selesai): ");
         porsi = sc.nextInt();
@@ -20,10 +21,17 @@ public class Kuis17Nayla {
             System.out.print("Jumlah porsi (0 = selesai): ");
             porsi = sc.nextInt();
             jumlahTransaksi++;
+
+            if (porsi < 1 || porsi > 10) {
+                System.out.println("Input tidak valid");
+            } else if (porsi > porsiTerbanyak) {
+                porsiTerbanyak = porsi;
+            }
         }
 
         System.out.println("=== RINGKASAN ===");
         System.out.println("Jumlah transaksi : " + jumlahTransaksi);
         System.out.println("Total pemasukan  : Rp " + total);
+        System.out.println("Porsi terbanyak  : " + porsiTerbanyak);
     }
 }
